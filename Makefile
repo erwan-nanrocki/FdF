@@ -6,7 +6,7 @@
 #    By: enanrock <marvin42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/02 11:41:31 by enanrock          #+#    #+#              #
-#    Updated: 2017/11/10 23:07:06 by enanrock         ###   ########.fr        #
+#    Updated: 2017/11/10 23:13:47 by enanrock         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,9 +51,7 @@ endif
 
 re: fclean all
 
-new_author: author
-
-where_is_malloc:
+where_is_malloc: $(LIB)
 	@make $@ -C ./libft/
 
 $(LIB):
@@ -74,7 +72,7 @@ author:
 	echo "*_DONE"      >> $@
 	@echo "\033[m"
 
-norme:
+norme: $(LIB)
 	@make norme -C $(LIB_DIR)
 	@echo "\033[1;37m""norminette on $(SRC_DIR)""\033[m"
 	@norminette $(SRC_DIR)                               \
