@@ -6,11 +6,11 @@
 #    By: enanrock <marvin42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/02 11:41:31 by enanrock          #+#    #+#              #
-#    Updated: 2017/11/10 22:54:31 by enanrock         ###   ########.fr        #
+#    Updated: 2017/11/10 23:07:06 by enanrock         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = FdF
+NAME = fdf
 NAME_001 = $(NAME)
 NAME_ALL = $(NAME_001)
 
@@ -19,19 +19,21 @@ SRC_DIR = ./srcs/
 OBJ_DIR = ./objs/
 HDR_DIR = ./includes/
 
+LIB = $(addsuffix Makefile, $(LIB_DIR))
+
 .PHONY: all leaks clean fclean re new_author norme victory tuto where_is_malloc
 
-all: $(LIB_DIR) author .gitignore
+all: $(LIB) author .gitignore
 	@make $@ -C dir_of_makefile -f Makefile_fdf
 
-$(NAME_001):
+$(NAME_001): $(LIB)
 	@make $(addprefix ../, $@) -C dir_of_makefile -f Makefile_fdf
 
 leaks:
 	clear
 	@make $@ -C dir_of_makefile -f Makefile_fdf
 
-clean:
+clean: $(LIB)
 	@make $@ -C dir_of_makefile -f Makefile_fdf
 ifneq ("$(OBJ_DIR)", "./")
 	@echo "\033[1;31m""\c"
@@ -39,7 +41,7 @@ ifneq ("$(OBJ_DIR)", "./")
 	@echo "\033[m""\c"
 endif
 
-fclean:
+fclean: $(LIB)
 	@make $@ -C dir_of_makefile -f Makefile_fdf
 ifneq ("$(OBJ_DIR)", "./")
 	@echo "\033[1;31m""\c"
@@ -54,8 +56,8 @@ new_author: author
 where_is_malloc:
 	@make $@ -C ./libft/
 
-$(LIB_DIR):
-	git clone https://github.com/erwan-nanrocki/libft.git $@
+$(LIB):
+	git clone https://github.com/erwan-nanrocki/libft.git $(LIB_DIR)
 
 author:
 	@echo "\033[1;37m""\c"
