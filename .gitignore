@@ -1,0 +1,6 @@
+./objs/
+FdF
+*.swp
+*.o
+*.a
+*_DONE
