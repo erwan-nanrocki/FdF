@@ -6,20 +6,20 @@
 #    By: enanrock <marvin42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/12/02 11:41:31 by enanrock          #+#    #+#              #
-#    Updated: 2017/11/10 23:13:47 by enanrock         ###   ########.fr        #
+#    Updated: 2017/11/14 02:41:16 by enanrock         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fdf
+NAME     = fdf
 NAME_001 = $(NAME)
 NAME_ALL = $(NAME_001)
 
-LIB_DIR = ./libft/
-SRC_DIR = ./srcs/
-OBJ_DIR = ./objs/
-HDR_DIR = ./includes/
+LIBFT_DIR = ./libft/
+SRC_DIR   = ./srcs/
+OBJ_DIR   = ./objs/
+HDR_DIR   = ./includes/
 
-LIB = $(addsuffix Makefile, $(LIB_DIR))
+LIB = $(addsuffix Makefile, $(LIBFT_DIR))
 
 .PHONY: all leaks clean fclean re new_author norme victory tuto where_is_malloc
 
@@ -55,7 +55,7 @@ where_is_malloc: $(LIB)
 	@make $@ -C ./libft/
 
 $(LIB):
-	git clone https://github.com/erwan-nanrocki/libft.git $(LIB_DIR)
+	git clone https://github.com/erwan-nanrocki/libft.git $(LIBFT_DIR)
 
 author:
 	@echo "\033[1;37m""\c"
@@ -73,7 +73,7 @@ author:
 	@echo "\033[m"
 
 norme: $(LIB)
-	@make norme -C $(LIB_DIR)
+	@make norme -C $(LIBFT_DIR)
 	@echo "\033[1;37m""norminette on $(SRC_DIR)""\033[m"
 	@norminette $(SRC_DIR)                               \
 		| sed ''s/Error/`echo "\033[0;31mError"`/g''     \
@@ -84,6 +84,7 @@ norme: $(LIB)
 		| sed ''s/Error/`echo "\033[0;31mError"`/g''     \
 		| sed ''s/Warning/`echo "\033[0;33mWarning"`/g'' \
 		| sed ''s/Norme/`echo "\033[1;34mNorme"`/g''
+	@echo "\033[m""\c"
 
 victory:
 	@echo "\r  ( '_' )           < .                                    \c"

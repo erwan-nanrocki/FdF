@@ -6,13 +6,14 @@
 /*   By: enanrock <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 22:42:14 by enanrock          #+#    #+#             */
-/*   Updated: 2017/11/10 22:42:43 by enanrock         ###   ########.fr       */
+/*   Updated: 2017/11/14 02:28:48 by enanrock         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-#include "libft.h"
+# include "libft.h"
+# include "mlx.h"
 
 #endif

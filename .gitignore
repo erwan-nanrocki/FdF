@@ -1,5 +1,5 @@
-./objs/
-FdF
+./object/
+fdf
 *.swp
 *.o
 *.a
